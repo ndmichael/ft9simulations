@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FT9ja Demo</title>
+    <link rel="stylesheet" href="{% static 'account/css/b52css/bootstrap.min.css' %}" />
+</head>
+
+<body>
+    
+
+    {% if messages %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="offset-sm-3 col-sm-6">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    <h5>{{ message }}</h5>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer class="pt-3 bg-light border-top">
+        <div class="container">
+            <div class="row  p-4">
+                <div class="col s12 text-center">
+                    <span class=" text-danger">FT9JA demo project</span> &copy; copyright. <br />
+                    developed by <span class=" text-primary">Michael Ukeje.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'account/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'account/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
