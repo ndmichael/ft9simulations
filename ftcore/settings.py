@@ -130,6 +130,11 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
+#redirect url
+LOGIN_REDIRECT_URL = 'currentprofile'
+
+# custom model
+AUTH_USER_MODEL = 'account.CustomUser'
 
 
 # Default primary key field type
