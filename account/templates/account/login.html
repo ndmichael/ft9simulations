@@ -4,24 +4,31 @@
 
 
 {% block content %}
-    <section class="bg-light">
-        <div class=" container my-5">
+    <section>
+        <div class=" container">
             <div class="row">
-                <div class="col-12 col-sm-6 mx-auto">
-                    <p class=" text-muted">This app is for Egbin staff use only.</p>
-                    <form action="" method="POST">
-                        {% csrf_token %}
-                        <fieldset>
-                            <h3 class="mb-3">LOGIN INTO YOUR ACCOUNT</h3>
-                            {{form|crispy}}
-                        </fieldset>
-   
-                        <div class=" form-group">
-                            <button class="btn btn-dark col-12">
-                                Log into account
-                            </button>
-                        </div>
-                    </form>
+                <div class="col-12 col-sm-5 mx-auto">
+                    <div class=" text-center py-4">
+                        <h2>Sign into account</h2>
+                        <p>don't have an account, <a href="">sign up</a></p>
+                    </div>
+                    <div class="bg-white shadow rounded-5" style="padding: 5em;">
+                        <p class=" text-muted">This app is for private use only.</p>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <fieldset>
+                                <!-- {{form|crispy}} -->
+                                {{ form.username | as_crispy_field }}
+                                {{ form.password | as_crispy_field }}
+                            </fieldset>
+    
+                            <div class=" form-group">
+                                <button class="btn btn-dark col-12">
+                                    Sign into account
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
