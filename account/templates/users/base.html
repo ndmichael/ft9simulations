@@ -30,70 +30,18 @@
     <nav class="navbar navbar-expand-sm w-100">
         <div class="container">
           <a class="navbar-brand text-primary" href="/">
-            <img class="img-fluid" style="height: 40px; width: 100%; object-fit: cover;" src="{% static '/dbank/images/logo5.png' %}">
+            <img class="img-fluid" style="height: 40px; width: 100%; object-fit: cover;" src="{% static '/account/images/logo.webp' %}">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse " id="navbarNav">
             
-            <ul class="navbar-nav mx-auto">
-              {% if request.user.is_staff %}
-                <li class="nav-item">
-                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'admindashboard' %}">ADMIN DASHBOARD <i class="bi bi-speedometer text-white ps-3"></i></a>
-                </li>
-              {% else %}
+            <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'investments' %}">Investments</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Cards
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{% url 'visagold' %}">Visa Gold Credit</a></li>
-                  <li><a class="dropdown-item" href="{% url 'visaInfinite' %}">Visa Infinite Credit</a></li>
-                  <li><a class="dropdown-item" href="{% url 'visaplatinum' %}">Visa Platinum Credit</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'baccounts' %}">Account & Deposit</a>
-              </li>
-              {% endif %}
             </ul>
-            
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            {% if request.user.is_authenticated %}
-              <li class="nav-item dropdown">
-                <a class="navbar-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="img-fluid rounded-circle" style="height: 40px; width: 40px; object-fit: cover; padding-top: -100px;" src="{{ user.photo_url }}">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item disabled text-danger" href="#">
-                        <b>{{request.user.username}}</b>
-                    </a>
-
-                    {% if not request.user.is_staff %}
-                    <a class="dropdown-item" href="{% url 'clientprofile' request.user.username %}" target="_blank">
-                        <p>Profile</p>
-                    </a>
-                    {% endif %}
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'account_logout' %}">Logout </a>
-              </li>
-            {% else %}
-              <li class="nav-item">
-                  <a class="nav-link btn btn-primary text-white" aria-current="page" href="{% url 'account_login' %}" target="_blank">LOGIN <i class="bi bi-box-arrow-in-right text-white ps-3"></i></a>
-              </li>
-            </ul>
-            {% endif %}
-            
           </div>
         </div>
       </nav>
@@ -112,82 +60,18 @@
     </section>
     {% block content %} {% endblock content %}
 
-    <footer class="py-5" style="background: #1d262d;">
-      <section class="container">
-        <div class="row g-5">
-          <article class="col-12 col-md-4">
-              <h4 class="pb-3">Information</h4>
-              <p>
-                <a href="#">Investments</a>
-              </p>
-              <p>
-                <a href="#">Banking</a>
-              </p>
-              <p>
-                <a href="#">Savings</a>
-              </p>
-          </article>
-          <article class="col-12 col-md-4">
-            <h4 class="pb-3">Copy Right</h4>
-            <p>
-              &copy; copyright property of digital banking
-            </p>
-            <p>
-              1998 - 2023, all rights reserved.
-            </p>
-          </article>
-          <article class="col-12 col-md-4">
-              <h4> Digital Banking</h4>
-              <p>
-                We provide excellent digital and online banking functionalities, providing our clients both privacy and ease of banking.
-              </p>
-          </article>
-        </div>
-      </section>
-
-    </footer>
-
-    <!-- <script src="{% static 'dbank/js/b52js/bootstrap.min.js' %}"></script> -->
-    <script src="{% static 'dbank/js/b52js/bootstrap.bundle.min.js' %}"></script>
-</body>
-</html>
-
-
-
-    {% if messages %}
-    <div class="container my-5">
-        <div class="row">
-            <div class="offset-sm-3 col-sm-6">
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
-                    <h5>{{ message }}</h5>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    {% endif %}
-
-    {% block content %}
-
-    {% endblock %}
-
     <footer class="pt-3 bg-light border-top">
-        <div class="container">
-            <div class="row  p-4">
-                <div class="col s12 text-center">
-                    <span class=" text-danger">FT9JA demo project</span> &copy; copyright. <br />
-                    developed by <span class=" text-primary">Michael Ukeje.</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+      <div class="container">
+          <div class="row  p-4">
+              <div class="col s12 text-center">
+                  <span class=" text-danger">FT9JA demo project</span> &copy; copyright. <br />
+                  developed by <span class=" text-primary">Michael Ukeje.</span>
+              </div>
+          </div>
+      </div>
+  </footer>
 
-
-    <script src="{% static 'account/js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'account/js/bootstrap.bundle.min.js' %}"></script>
-
+  <script src="{% static 'account/js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'account/js/bootstrap.bundle.min.js' %}"></script>
 </body>
-
 </html>
